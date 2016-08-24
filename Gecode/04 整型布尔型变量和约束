@@ -12,11 +12,11 @@ grammar_cjkRuby: true
 | 4.4 |  综述了Gecode中整型和布尔型可用的约束 |
 
 引用头文件
-``` c++
+```cpp
 #include <gecode/int.hh>
 ```
 使用命名空间
-``` c++
+```cpp
 using namespace Gecode
 ```
 ---------------
@@ -25,8 +25,17 @@ using namespace Gecode
 ## 4.1 整型和布尔型变量
 
  1. 整型变量：```IntVar```	
- 2. 布尔变量：```BoolVar````
-两种变量没有特别联系，相互转换需要特定约束，
+ 2. 布尔变量：```BoolVar```
+
+两种变量没有特别联系，需要使用特定约束，进行相互转换。
+
+### 创建整型变量
+```cpp
+	//定义一个变量x，dom(x) = {-4, ..., 20}
+	IntVar x(home, -4, 20);
+    //也可以用IntSet定义变量域
+    IntVar x(home, IntSet(-4, 20));
+```
 
 
 欢迎使用 **{小书匠}(xiaoshujiang)编辑器**，您可以通过==设置==里的修改模板来改变新建文章的内容。
