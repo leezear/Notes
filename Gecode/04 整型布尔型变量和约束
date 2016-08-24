@@ -29,13 +29,36 @@ using namespace Gecode
 
 两种变量没有特别联系，需要使用特定约束，进行相互转换。
 
-### 创建整型变量
-```cpp
-	//定义一个变量x，dom(x) = {-4, ..., 20}
-	IntVar x(home, -4, 20);
-    //也可以用IntSet定义变量域
-    IntVar x(home, IntSet(-4, 20));
+### 4.1.1 创建整型变量
+```cpp?linenums
+//定义一个变量x，dom(x) = {-4, ..., 20}
+IntVar x(home, -4, 20);
+//也可以用IntSet定义变量域
+IntVar x(home, IntSet(-4, 20));
 ```
+变量域为空会抛出异常```Int::VariableEmptyDomain```。
+
+#### Tip 4.2[初始化变量]
+```cpp?linenums
+IntVar x;
+x = IntVar(home, -4, 20);
+//默认的拷贝函数不会创建新的变量，x与y指向相同的实现
+IntVar x(home, 1, 4);
+IntVar y(x);
+//与下等价
+IntVar x(home, 1, 4);
+IntVar y;
+y=x;
+```
+
+## 4.1.2 整型值的极限
+
+整型变量的取值集合是```int```类型取值集合的子集。
+```INT_MIN``` < ```-Int::Limits::min = Int::Limits::max``` < ```INT_MAX```
+
+
+
+
 
 
 欢迎使用 **{小书匠}(xiaoshujiang)编辑器**，您可以通过==设置==里的修改模板来改变新建文章的内容。
