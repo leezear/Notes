@@ -27,8 +27,7 @@ This parser allows to parse a XCSP3 (core) instance using SAX mode.
 
 # 3. Implementation
 -----------------
-You need to create a class that inherits XCSP3CoreCallbacks.h and to override all (or some)
-functions of this class.
+You need to create a class that inherits XCSP3CoreCallbacks.h and to override all (or some) functions of this class.
 ```cpp
 class MySolverCallbacks : public  XCSP3CoreCallbacks{....}
 ```
@@ -66,8 +65,7 @@ class MySolverCallbacks : public  XCSP3PrintCallbacks{
 }
 ```
 
-> Remark: The parser automatically flattens all variables from arrays and calls function buildVariableInteger
-for each entry of the array (with the associated name x[0], x[1]....)
+> Remark: The parser automatically flattens all variables from arrays and calls function ```buildVariableInteger``` for each entry of the array (with the associated name x[0], x[1]....)
 
  ## 3.2 Extensional constraints
 Now, if you want to deal with extensional constraints, your callback must override 3 functions:
@@ -109,12 +107,10 @@ Note that the parser is able to recognize constraint with the form  `!$x +-k\;op
 ```cpp
 virtual void buildConstraintPrimitive(string id, OrderType op, XVariable *x, int k, XVariable *y)
 ```
-You can disable this feature by setting the boolean XCSP3CoreCallbacks::recognizeSpecialIntensionCases to false.
-Other primitive constraints will be recognized later.
+You can disable this feature by setting the boolean ```XCSP3CoreCallbacks::recognizeSpecialIntensionCases``` to false. Other primitive constraints will be recognized later.
 
   ## 3.4 Other constraints
-  You can continue to override all functions of the class XCSP3CoreCallback depending the constraints your solver manages.
-  Of course, depending the constraint,  different functions are called. Here, is an example with allDiff constraint.
+  You can continue to override all functions of the class ```XCSP3CoreCallback``` depending the constraints your solver manages. Of course, depending the constraint,  different functions are called. Here, is an example with allDiff constraint.
 ```cpp?linenums
 void newConstraintAllDiff(string id, vector<XVariable *> list){
 	vector<Variable*> vars;
@@ -129,8 +125,7 @@ void newConstraintAllDiff(string id, vector<XVariable *> list){
 >Remark: Note that the argument list of each function does not always provides the scope of the constraint: a variable can appears twice in the list for example or a variable can appear in the list and also elsewhere (for example in the values array).
 
   ## 3.5 Options
-  The class ```XCSP3CoreCallbacks``` contains some options. We already introduced ```recognizeSpecialIntensionCases``` (see section 3.3)
-  Let us introduced the two other ones:
+  The class ```XCSP3CoreCallbacks``` contains some options. We already introduced ```recognizeSpecialIntensionCases``` (see section 3.3). Let us introduced the two other ones:
    - ```recognizeSpecialCountCases```: this variable (set to true by default) enables the recognition of special count constraint:
             atleast, atmost, exactly, among, exctalyVariable
    - ```recognizeNValuesCases```: this variable (set to true by default) enables the recognition of special nValues constraint (currently NotAllEqual).
