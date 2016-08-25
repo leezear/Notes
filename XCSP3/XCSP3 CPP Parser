@@ -104,8 +104,8 @@ void buildConstraintIntension(string id, string expr) {
 	// The expression is the string defined in XCSP3 format.
 }
 ```
-Note that the parser is able to recognize constraint with the form  x +- k op y (op \in {eq, le, lt, ge, gt, ne}. In such a case
-a call to the following function is done:
+Note that the parser is able to recognize constraint with the form  `!$x +-k\;op\;y \ (op \in \{eq, le, lt, ge, gt, ne\}) $`. In such a case a call to the following function is done:
+
 ```cpp
 virtual void buildConstraintPrimitive(string id, OrderType op, XVariable *x, int k, XVariable *y)
 ```
