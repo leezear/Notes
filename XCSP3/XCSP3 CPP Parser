@@ -135,10 +135,10 @@ in the list for example or a variable can appear in the list and also elsewhere 
   Let us introduced the two other ones:
    - recognizeSpecialCountCases: this variable (set to true by default) enables the recognition of special count constraint:
             atleast, atmost, exactly, among, exctalyVariable
-   -recognizeNValuesCases: this variable (set to true by default) enables the recognition of special nValues constraint (currently NotAllEqual).
+   - recognizeNValuesCases: this variable (set to true by default) enables the recognition of special nValues constraint (currently NotAllEqual).
 
 
-4. Classes
+# 4. Classes
 ----------
   As it is defined in XCSP3 report, blocks of constraints identify  constraints that are semantically linked.
   Groups of constraints (or single constraints, or variables) can have the attribute class used to identify them.
@@ -147,7 +147,7 @@ in the list for example or a variable can appear in the list and also elsewhere 
   If you want to remove such variables/constraints, you need to call the function XCSP3CoreCallbacks::addClassToDiscard.
   (See directory samples/main.cc to see a simple call of this function).
 
-5. TODO
+# 5. TODO
 -------
  - Add some primitives constraints recognition
  - Check the validity of each entry.
